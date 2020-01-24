@@ -24,7 +24,7 @@ echo "## Setup Deploy keys ##################"
 mkdir /root/.ssh
 ssh-keyscan -t rsa github.com > /root/.ssh/known_hosts
 
-if [ "$HUGO_THEME_URL" = "" ]; then
+if [ X"$HUGO_THEME_URL" = X"" ]; then
   echo "## Skip hugo them clone ##################"
 else
   echo "## Clone hugo theme ##################"

@@ -5,7 +5,7 @@ FROM alpine:latest
 ENV REFRESHED_AT 2020-01-11
 
 LABEL "com.github.actions.name"="Hugo Actions"
-LABEL "com.github.actions.description"="Building Hugo static sites and deploy."
+LABEL "com.github.actions.description"="Building Hugo static sites."
 LABEL "com.github.actions.icon"="home"
 LABEL "com.github.actions.color"="green"
 LABEL "repository"="http://github.com/xiexianbin/hugo-actions"
