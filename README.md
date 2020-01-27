@@ -1,4 +1,4 @@
-# Github Action for Hugo
+# Github Action for Build Hugo site
 
 A Github Action to build [`hugo`](https://gohugo.io/) static sites.
 
