@@ -3,6 +3,7 @@ set -e
 
 GITHUB_EMAIL=${GITHUB_EMAIL:-"me@xiexianbin.cn"}
 GITHUB_USERNAME=${GITHUB_USERNAME:-"xiexianbin"}
+HUGO_ARGS=${HUGO_ARGS:-""}
 HUGO_THEME_URL=${HUGO_THEME_URL:-}
 
 echo "## Check Package Version ##################"
@@ -35,7 +36,7 @@ fi
 
 echo "## Build site ##################"
 HUGO_ENV=production
-hugo
+hugo ${HUGO_ARGS}
 tree ./public
 
 echo "## Done. ##################"

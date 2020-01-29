@@ -16,5 +16,6 @@ A Github Action to build [`hugo`](https://gohugo.io/) static sites.
       env:
         GITHUB_EMAIL: "me@xiexianbin.cn"
         GITHUB_USERNAME: "xiexianbin"
+        HUGO_ARGS: "--config config.yaml"
         # HUGO_THEME_URL: "https://xiexianbin:${{ secrets.GitHub_PAT }}@github.com/owner/repo.git"
 ```
