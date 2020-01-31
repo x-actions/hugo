@@ -12,7 +12,7 @@ A Github Action to build [`hugo`](https://gohugo.io/) static sites.
 
 ```
     - name: build hugo
-      uses: x-actions/hugo@master
+      uses: x-actions/hugo@release/v1
       env:
         GITHUB_EMAIL: "me@xiexianbin.cn"
         GITHUB_USERNAME: "xiexianbin"
