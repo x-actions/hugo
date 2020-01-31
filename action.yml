@@ -1,0 +1,20 @@
+name: 'Hugo Build Action'
+description: 'Github Action for Build Hugo site'
+author: 'xiexianbin <me@xiexianbin>'
+inputs: 
+  GITHUB_EMAIL:
+    description: 'git user email'
+    default: "me@xiexianbin.cn"
+  GITHUB_USERNAME:
+    description: 'git use username'
+    default: "xiexianbin"
+  HUGO_ARGS:
+    description: 'hugo build args'
+    default: ""
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+
+branding:
+  color: "blue"
+  icon: "paper-plane"

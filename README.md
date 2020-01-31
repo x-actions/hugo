@@ -1,4 +1,4 @@
-# Github Action for Build Hugo site
+# Hugo Build Action
 
 A Github Action to build [`hugo`](https://gohugo.io/) static sites.
 
@@ -6,7 +6,7 @@ A Github Action to build [`hugo`](https://gohugo.io/) static sites.
 
 - GITHUB_EMAIL: git use email
 - GITHUB_USERNAME: git use username
-- HUGO_THEME_URL: hugo theme url[not use]
+- HUGO_ARGS: hugo build args
 
 ## How to Use
 
@@ -17,5 +17,4 @@ A Github Action to build [`hugo`](https://gohugo.io/) static sites.
         GITHUB_EMAIL: "me@xiexianbin.cn"
         GITHUB_USERNAME: "xiexianbin"
         HUGO_ARGS: "--config config.yaml"
-        # HUGO_THEME_URL: "https://xiexianbin:${{ secrets.GitHub_PAT }}@github.com/owner/repo.git"
 ```
