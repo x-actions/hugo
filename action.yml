@@ -16,5 +16,5 @@ runs:
   image: 'Dockerfile'
 
 branding:
-  color: "blue"
-  icon: "paper-plane"
+  color: "gray-dark"
+  icon: "edit"
