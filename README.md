@@ -11,7 +11,7 @@ A Github Action to build [`hugo`](https://gohugo.io/) static sites.
 ## How to Use
 
 ```
-    - name: build hugo
+    - name: Hugo Build Action
       uses: x-actions/hugo@master
       env:
         GITHUB_EMAIL: "me@xiexianbin.cn"
