@@ -10,4 +10,7 @@ jobs:
     steps:
     - name: Hugo Build Action
       uses: x-actions/hugo@master
-      run: hugo version
+      env:
+        GITHUB_EMAIL: "me@xiexianbin.cn"
+        GITHUB_USERNAME: "xiexianbin"
+        HUGO_ARGS: "version"
