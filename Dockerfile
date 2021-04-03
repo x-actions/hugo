@@ -19,15 +19,21 @@ ENV LC_ALL C.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
 
-RUN apk update && apk add --no-cache git git-lfs bash wget curl openssh-client tree && rm -rf /var/cache/apk/*
-
-RUN mkdir /usr/local/hugo/ && \
-    cd /usr/local/hugo/ && \
-    curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | \
+RUN apk update && \
+    apk add --no-cache bash wget curl git git-lfs openssh-client tree libstdc++ && \
+    cd /tmp && \
+    wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub && \
+    wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.33-r0/glibc-2.33-r0.apk && \
+    wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.33-r0/glibc-bin-2.33-r0.apk && \
+    wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.33-r0/glibc-i18n-2.33-r0.apk  && \
+    apk add glibc-2.33-r0.apk glibc-bin-2.33-r0.apk glibc-i18n-2.33-r0.apk && \
+    /usr/glibc-compat/bin/localedef -i en_US -f UTF-8 en_US.UTF-8 && \
+    curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | grep hugo_extended | \
     sed -r -n '/browser_download_url/{/Linux-64bit.tar.gz/{s@[^:]*:[[:space:]]*"([^"]*)".*@\1@g;p;q}}' | xargs wget && \
-    tar xzf *Linux-64bit.tar.gz -C /usr/local/hugo/ && \
-    ln -s /usr/local/hugo/hugo /usr/local/bin/hugo && \
-    rm *Linux-64bit.tar.gz
+    tar xzf *Linux-64bit.tar.gz -C /tmp && \
+    mv /tmp/hugo /usr/bin && \
+    rm -rf /var/cache/apk/* && \
+    rm -rf /tmp/*
 
 ADD entrypoint.sh /
 RUN chmod +x /entrypoint.sh
