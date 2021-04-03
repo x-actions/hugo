@@ -24,6 +24,7 @@ RUN apk update && apk add --no-cache git git-lfs bash wget curl openssh-client t
 RUN mkdir /usr/local/hugo/ && \
     cd /usr/local/hugo/ && \
     curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | \
+    grep hugo_extended | \
     sed -r -n '/browser_download_url/{/Linux-64bit.tar.gz/{s@[^:]*:[[:space:]]*"([^"]*)".*@\1@g;p;q}}' | xargs wget && \
     tar xzf *Linux-64bit.tar.gz -C /usr/local/hugo/ && \
     ln -s /usr/local/hugo/hugo /usr/local/bin/hugo && \
