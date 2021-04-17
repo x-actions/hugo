@@ -37,6 +37,6 @@ fi
 echo "## Build site ##################"
 HUGO_ENV=production
 hugo ${HUGO_ARGS}
-ls -lhart ./public
+[[ -d ./public ]] && ls -lhart ./public
 
 echo "## Done. ##################"
