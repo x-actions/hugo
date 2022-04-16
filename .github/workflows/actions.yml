@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - name: Hugo Build Action
-      uses: x-actions/hugo@release/v1
+      uses: x-actions/hugo@master
       env:
         GITHUB_EMAIL: "me@xiexianbin.cn"
         GITHUB_USERNAME: "xiexianbin"
