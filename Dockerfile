@@ -23,7 +23,7 @@ RUN apk update && \
     apk add --no-cache bash wget curl git git-lfs openssh-client tree libc6-compat libstdc++ libstdc++6 && \
     cd /tmp && \
     curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | grep hugo_extended | \
-    sed -r -n '/browser_download_url/{/Linux-64bit.tar.gz/{s@[^:]*:[[:space:]]*"([^"]*)".*@\1@g;p;q}}' | xargs wget && \
+    grep "Linux-64bit.tar.gz" | grep browser_download_url | awk -F "\"" '{print $4}' | xargs wget && \
     tar xzf *Linux-64bit.tar.gz -C /tmp && \
     mv /tmp/hugo /usr/bin && \
     rm -rf /var/cache/apk/* && \
