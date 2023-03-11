@@ -1,5 +1,5 @@
 # reate by xiexianbin, Github Action for Build Hugo site 
-FROM alpine:latest
+FROM ubuntu:20.04
 
 # Dockerfile build cache 
 ENV REFRESHED_AT 2020-01-11
@@ -19,14 +19,14 @@ ENV LC_ALL C.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
 
-RUN apk update && \
-    apk add --no-cache bash wget curl git git-lfs openssh-client tree libc6-compat libstdc++ libstdc++6 && \
+RUN apt update && \
+    apt install -y bash wget curl git git-lfs openssh-client tree && \
     cd /tmp && \
     curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | grep hugo_extended | \
-    sed -r -n '/browser_download_url/{/Linux-64bit.tar.gz/{s@[^:]*:[[:space:]]*"([^"]*)".*@\1@g;p;q}}' | xargs wget && \
-    tar xzf *Linux-64bit.tar.gz -C /tmp && \
+    sed -r -n '/browser_download_url/{/linux-amd64.tar.gz/{s@[^:]*:[[:space:]]*"([^"]*)".*@\1@g;p;q}}' | xargs wget && \
+    tar xzf *linux-amd64.tar.gz -C /tmp && \
     mv /tmp/hugo /usr/bin && \
-    rm -rf /var/cache/apk/* && \
+    apt clean all && \
     rm -rf /tmp/*
 
 ADD entrypoint.sh /
