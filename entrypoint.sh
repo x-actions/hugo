@@ -10,6 +10,7 @@ echo "## Check Package Version ##################"
 bash --version
 git version
 git lfs version
+node -v
 hugo version
 
 echo "## Init Git Config ##################"

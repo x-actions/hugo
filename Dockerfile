@@ -21,7 +21,9 @@ ENV LANGUAGE en_US.UTF-8
 
 ADD entrypoint.sh /
 RUN apt update && \
-    apt install -y bash wget curl git git-lfs nodejs npm openssh-client tree && \
+    apt install -y bash wget curl git git-lfs openssh-client tree && \
+    curl -fsSL https://deb.nodesource.com/setup_24.x | bash - && \
+    apt install -y nodejs && \
     cd /tmp && \
     curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | grep hugo_extended_withdeploy | \
     sed -r -n '/browser_download_url/{/linux-amd64.tar.gz/{s@[^:]*:[[:space:]]*"([^"]*)".*@\1@g;p;q}}' | xargs wget --no-check-certificate -t3 -T2 && \
